@@ -53,6 +53,21 @@ WhatDoesThisDo();
 
 // 3. Demonstrate understanding of hash maps
 
+/*1) Show your hash map after the insertion of keys 
+10, 22, 31, 4, 15, 28, 17, 88, 59 into a hash map 
+of length 11 using open addressing and a hash function 
+k mod m, where k is the key and m is the length.*/
+
+//[ 22, 88, null, null, 4, 15, 28, 17, 59, 31, 10]
+
+/*Show your hash map after the insertion of the keys 
+5, 28, 19, 15, 20, 33, 12, 17, 10 into the hash map 
+with collisions resolved by separate chaining. 
+Let the hash table have a length m = 9, and 
+let the hash function be k mod m.*/
+
+// [ null, [28, 19, 10], 20, 12, null, 5, [15, 33], null, 17]
+
 // 4. Remove Duplicates
 
 // 5. Any permutation a palindrome
