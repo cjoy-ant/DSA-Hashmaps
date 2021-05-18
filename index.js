@@ -1,11 +1,7 @@
 import "./styles.css";
 const main = require("./hashmap-drills");
-const WhatDoesThisDo = require("./hashmap-drills");
-const removeDupes = require('./hashmap-drills')
 
 main();
-WhatDoesThisDo();
-console.log(removeDupes("mississippi"));
 
 document.getElementById("app").innerHTML = `
 <h1>Hello Vanilla!</h1>
