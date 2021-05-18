@@ -93,28 +93,80 @@ let the hash function be k mod m.*/
 
   console.log(removeDupes("mississippi"));
 
-
   // 5. Any permutation a palindrome
 
   const palindrome = (str) => {
-    const table = new Map()
+    const table = new Map();
 
-    for (let i=0; i<str.length; i++){
+    for (let i = 0; i < str.length; i++) {
       if (!table.delete(str[i])) {
-        table.set(str[i], 1)
+        table.set(str[i], 1);
       }
     }
 
-    console.log(table.size, table)
+    console.log(table.size, table);
     if (table.size <= 1) {
-      return true
-    } 
-    return false
-  }
+      return true;
+    }
+    return false;
+  };
 
-  console.log(palindrome("racecar"))
+  console.log(palindrome("racecar"));
 
   // 6. Anagram grouping
+
+  const anagram = (input) => {
+    const output = new HashMap();
+    output.MAX_LOAD_RATIO = 0.5;
+    output.SIZE_RATIO = 3;
+
+    for (let i = 0; i < input.length; i++) {}
+  };
+
+  let input = ["east", "cars", "acre", "arcs", "teas", "eats", "race"];
+  console.log(anagram(input));
+  // expected output
+  // [['east', 'teas', 'eats'], ['cars', 'arcs'], ['acre', 'race']]
+
+  // SOLUTION 1
+  function _sortword(word) {
+    // Helper function: sort a word into some form of canonical order.
+    // The exact order is insignificant and need not be lexicographical,
+    // as long as it is utterly consistent: any two anagrams of the same
+    // letter sequence must return the same string.
+    return word.split("").sort().join("");
+  }
+
+  function group_into_anagrams(words) {
+    let anagrams = new Map();
+    let ret = [];
+    for (let word of words) {
+      let key = _sortword(word); //east
+      if (anagrams.has(key)) {
+        anagrams.get(key).push(word);
+      } else {
+        ret.push(anagrams.set(key, [word]));
+      }
+    }
+    return ret;
+  }
+
+  console.log(group_into_anagrams(input));
+
+  // SOLUTION 2
+  const sort = (word) => word.split("").sort().join("");
+
+  const anagrams = (words) => {
+    const groups = new Map();
+    words.forEach((word) => {
+      const sorted = sort(word);
+      const group = groups.get(sorted) || [];
+      groups.set(sorted, [...group, word]);
+    });
+    return Array.from(groups.values());
+  };
+
+  console.log(anagrams(input));
 
   // 7. Separate Chaining
 };
