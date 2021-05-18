@@ -70,6 +70,27 @@ let the hash function be k mod m.*/
 
 // 4. Remove Duplicates
 
+const removeDupes = (str) => {
+  const noDupes = new HashMap();
+  noDupes.MAX_LOAD_RATIO = 0.5;
+  noDupes.SIZE_RATIO = 3;
+
+  str = str.toLowerCase().split("");
+  for (let i = 0; i < str.length; i++) {
+    noDupes.set(str[i], str[i]);
+  }
+
+  let newString = "";
+  let letters = noDupes._hashTable;
+  for (let j = 0; j < letters.length; j++) {
+    if (letters[j]) {
+      newString += letters[j].key;
+    }
+  }
+
+  return newString;
+};
+
 // 5. Any permutation a palindrome
 
 // 6. Anagram grouping
@@ -77,3 +98,4 @@ let the hash function be k mod m.*/
 // 7. Separate Chaining
 
 module.exports = main;
+module.exports = removeDupes;
